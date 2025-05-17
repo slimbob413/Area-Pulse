@@ -18,8 +18,10 @@ jobs:
 
       - name: Install dependencies
         run: |
-          gem install bundler
-          bundle install || true
+          gem install jekyll bundler
+          if [ -f Gemfile ]; then
+            bundle install --jobs 4 || true
+          fi
 
       - name: Check _private_posts exists
         run: test -d _private_posts || echo "_private_posts missing – continuing"
@@ -35,7 +37,7 @@ jobs:
 
       - name: Build Jekyll site
         run: |
-          bundle exec jekyll build --source ./ --destination ./_site
+          jekyll build --source ./ --destination ./_site
         continue-on-error: true
 
       - name: Configure Pages
