@@ -1,4 +1,5 @@
-## Court orders Navy to recognise disengaged officer as Vice Admiral: The Latest Developments
+## Court orders Navy to recognise disengaged officer as Vice Admiral: A News Report
+![news image](https://oaidalleapiprodscus.blob.core.windows.net/private/org-icz6idtlNt9i50IB5ovn2dgl/user-vLI1bL7dfBEchAsrFvrKMXHM/img-aJRYOtMR7Ch3Hv4jsekh0wDY.png?st=2025-05-17T20%3A28%3A07Z&se=2025-05-17T22%3A28%3A07Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=cc612491-d948-4d2e-9821-2683df3719f5&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-05-17T19%3A27%3A55Z&ske=2025-05-18T19%3A27%3A55Z&sks=b&skv=2024-08-04&sig=hXwIKy5fFeu3Q%2BAtFNA46Qklu%2BLPoamoKd4IFwsJ9XQ%3D)
 _Date: 2025-05-17_  
 _Sentiment: neutral_
 
