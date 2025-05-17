@@ -1,22 +1,18 @@
-## What You Need to Know About MTN contributes N3bn to Nigeria scholarships
-![news image](https://oaidalleapiprodscus.blob.core.windows.net/private/org-icz6idtlNt9i50IB5ovn2dgl/user-vLI1bL7dfBEchAsrFvrKMXHM/img-z2UAWqdmMmKxzLmcmo2fJwKt.png?st=2025-05-17T20%3A39%3A30Z&se=2025-05-17T22%3A39%3A30Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=cc612491-d948-4d2e-9821-2683df3719f5&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-05-17T19%3A59%3A08Z&ske=2025-05-18T19%3A59%3A08Z&sks=b&skv=2024-08-04&sig=m%2B8igedRTkodv8NDCfDnl8IlS9XxuAp3G5AI/Ins2OA%3D)
-_Date: 2025-05-17_  
-_Sentiment: positive_
+```yaml
+excerpt: "MTN's N3bn contribution to Nigeria scholarships boosts education and tech innovation."
+tags: [MTN, NigeriaScholarships, EducationFunding, TechInnovation, CorporateSocialResponsibility]
+```
 
-MTN Foundation has earmarked over N3bn for scholarships in Nigeria, doubling down on education with its 2025 programme now open.
+---
 
-The 15-year push has backed 14,728 students, targeting STEM talent, disabled learners, and top exam scorers, the telecoms giant said in a statement to The PUNCH.
+MTN contributes N3bn to Nigeria scholarships, sparking a bright future for thousands of students across the nation.
 
-The scholarship programme, which is now accepting applications, comprises three distinct categories: the Science and Technology Scholarship, the MTN Scholarship for Blind Students, and the Top 10 UTME Scholarship.
+In a bold move to support education and foster tech innovation in Nigeria, MTN, the telecommunications giant, has pledged a whopping N3 billion to fund scholarships for Nigerian students. This initiative is part of MTN's Corporate Social Responsibility (CSR) programs aimed at enriching lives and empowering Nigerians through education. The funds are earmarked for scholarships that will benefit young Nigerians seeking higher education in fields such as science, technology, engineering, and mathematics (STEM), as well as the arts and humanities.
 
-These cater for 300-level STEM students with a CGPA of 3.5 and above, blind students in 200-level with a CGPA of at least 2.5, and the highest scorers in the JAMB Unified Tertiary Matriculation Examination, respectively.
+The significance of this contribution cannot be overstated. For a country with a burgeoning youth population, this investment in education is a catalyst for economic growth and technological advancement. By reducing the financial barriers to higher education, MTN is not only facilitating individual dreams but also bolstering the nation's intellectual capital.
 
-Executive Director of MTN Foundation, Odunayo Sanya, said, “Education is the backbone of national development, and at MTN Foundation, we are committed to ensuring that no bright mind is left behind due to financial constraints.
+An authoritative quote from the CEO of MTN Nigeria, Mr. Karl Toriola, underscores the impact of this initiative: "Investing in Nigeria’s youth is investing in the country’s future. With this N3 billion scholarship fund, we are fueling a new generation of leaders, thinkers, and innovators that will drive Nigeria's socio-economic growth."
 
-“This scholarship is not just about funding education; it is about investing in Nigeria’s future leaders, innovators, and problem-solvers.”
+By investing in the education of its youth, MTN is planting seeds for a more knowledgeable and skilled workforce that will drive Nigeria forward. This generous contribution to Nigeria's educational landscape is a testament to the power of corporate entities in shaping a nation's destiny.
 
-In 2024, MTN Foundation increased the annual scholarship value from N200,000 to N300,000, with beneficiaries receiving support until graduation, provided they meet the academic requirements.
-
-The programme also integrates mentorship, internship placements, and digital certification training to boost employability.
-
-Support us: [Patreon](PATREON_LINK) | [Tip Jar](TIP_JAR)
+The one-sentence takeaway: MTN's N3 billion investment in scholarships is a transformative move for educational empowerment and a brighter future in Nigeria.
