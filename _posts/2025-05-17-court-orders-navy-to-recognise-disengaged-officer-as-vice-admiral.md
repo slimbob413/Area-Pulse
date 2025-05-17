@@ -1,7 +1,7 @@
-## Court orders Navy to recognise disengaged officer as Vice Admiral – A Closer Look
-![news image](https://oaidalleapiprodscus.blob.core.windows.net/private/org-icz6idtlNt9i50IB5ovn2dgl/user-vLI1bL7dfBEchAsrFvrKMXHM/img-MwEMLxm75x2JMKS6PKbD04Fj.png?st=2025-05-17T20%3A32%3A25Z&se=2025-05-17T22%3A32%3A25Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=cc612491-d948-4d2e-9821-2683df3719f5&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-05-17T20%3A51%3A46Z&ske=2025-05-18T20%3A51%3A46Z&sks=b&skv=2024-08-04&sig=6vkw7YQsKVVs65HoL753ZG0ca4aYzDhhfkkherLocd4%3D)
+## Unpacking Court orders Navy to recognise disengaged officer as Vice Admiral
+![news image](https://oaidalleapiprodscus.blob.core.windows.net/private/org-icz6idtlNt9i50IB5ovn2dgl/user-vLI1bL7dfBEchAsrFvrKMXHM/img-R7D0JeolhWC1PXpp3i3xkZ1f.png?st=2025-05-17T20%3A34%3A25Z&se=2025-05-17T22%3A34%3A25Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=cc612491-d948-4d2e-9821-2683df3719f5&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-05-17T20%3A57%3A15Z&ske=2025-05-18T20%3A57%3A15Z&sks=b&skv=2024-08-04&sig=FKMagwcx1lNh%2Brk/UaRQBhQlTOZh7IK%2BovdobSLBSEE%3D)
 _Date: 2025-05-17_  
-_Sentiment: positive_
+_Sentiment: neutral_
 
 The National Industrial Court has ordered the Nigerian Navy to accord Navy Captain Dada Labinjo all the rights, benefits and privileges of a retired Vice-Admiral of the Nigerian Navy effective April 12, 2017.
 
