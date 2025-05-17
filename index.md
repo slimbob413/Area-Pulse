@@ -1,8 +1,20 @@
 ---
 layout: default
-title: Welcome to Area Pulse
+title: Home
 ---
 
-Discover key trends and narratives from Nigeria's political, economic, and tech ecosystems. 
+# Area Pulse
 
-<!-- Trigger rebuild --> 
+_Tracking Nigeria's political, economic, and tech discourse._
+
+## Latest Posts
+
+<ul>
+  {% for post in site.pages %}
+    {% if post.path contains 'posts/' %}
+      <li>
+        <a href="{{ post.url }}">{{ post.title }}</a> - {{ post.date | date: "%b %d, %Y" }}
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul> 
