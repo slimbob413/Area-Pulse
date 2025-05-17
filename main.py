@@ -28,7 +28,7 @@ ENABLE_ENGAGEMENT_BOT = os.getenv("ENABLE_ENGAGEMENT_BOT", "true").lower() == "t
 
 scheduler = BlockingScheduler()
 
-scheduler.add_job(run_agent_cycle, 'interval', hours=2, id='agent_cycle')
+scheduler.add_job(run_agent_cycle, 'interval', minutes=10, id='agent_cycle')
 if ENABLE_ENGAGEMENT_BOT:
     scheduler.add_job(run_engagement_bot, 'interval', minutes=10, id='engagement_bot')
 else:

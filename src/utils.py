@@ -578,4 +578,80 @@ def log_metric(name: str, value: float):
     Append a metric to the log file specified by METRIC_LOG_PATH: timestamp,name,value
     """
     with open(METRIC_LOG_PATH, "a") as f:
-        f.write(f"{datetime.utcnow().isoformat()},{name},{value}\n") 
+        f.write(f"{datetime.utcnow().isoformat()},{name},{value}\n")
+
+# ------------------ SEO-Enhanced Generation ------------------
+
+def fetch_primary_trend_keyword() -> str:
+    """
+    Use pytrends to fetch the top Google trending search in Nigeria.
+    Returns the top keyword as a string, or "Nigeria" as a fallback.
+    """
+    try:
+        from pytrends.request import TrendReq
+        pytrend = TrendReq(hl="en-US", tz=360)
+        trending_df = pytrend.trending_searches(pn="nigeria")  # type: ignore[arg-type]
+        if not trending_df.empty:
+            keyword = str(trending_df.iloc[0, 0])
+            logging.info(f"Fetched primary trend keyword from Google Trends: {keyword}")
+            return keyword
+    except Exception as e:
+        logging.warning(f"Failed to fetch Google Trends data: {e}")
+    return "Nigeria"
+
+@retry()
+def generate_seo_blog_post(headline: str, primary_trend_keyword: str, image_url: str = "") -> str:
+    """
+    Generate a blog post using the helpful-content template with YAML front-matter.
+
+    Args:
+        headline: The article headline (also acts as main keyword).
+        primary_trend_keyword: Top Google search trend keyword for Nigeria.
+        image_url: Optional hero image URL to include in the front-matter.
+
+    Returns:
+        The full markdown file (YAML front-matter + body).
+    """
+    if not client:
+        logging.error("OPENAI_KEY not set in environment or OpenAI client not initialized.")
+        raise RuntimeError("OPENAI_KEY not set in environment.")
+
+    system_msg = {
+        "role": "system",
+        "content": "You are a Nigerian tech & policy journalist."
+    }
+
+    user_prompt = (
+        "1. Draft a 250-word explainer that:\n"
+        "   • opens with a one-sentence hook including the main keyword: \"{headline}\".\n"
+        "   • answers the search intent: who, what, why it matters for Nigerians.\n"
+        "   • adds one authoritative quote (source cited).\n"
+        "   • ends with a one-sentence takeaway that includes \"{primary_trend_keyword}\".\n"
+        "2. Provide:\n"
+        "   • `excerpt` (≤140 chars, compelling, keyword-rich)\n"
+        "   • `tags` list (max 5, camel-case)\n"
+        "Return as valid YAML front-matter followed by Markdown body."
+    ).format(headline=headline, primary_trend_keyword=primary_trend_keyword)
+
+    try:
+        response = client.chat.completions.create(
+            model=OPENAI_TEXT_MODEL,
+            messages=[system_msg, {"role": "user", "content": user_prompt}],
+            max_tokens=700,
+            temperature=0.7
+        )
+        article_md = response.choices[0].message.content.strip()
+
+        # Ensure required front-matter fields
+        if image_url:
+            if "image:" not in article_md.split("---", 2)[1]:
+                # Insert image field
+                parts = article_md.split("---")
+                if len(parts) >= 3:
+                    front = parts[1].strip()
+                    front += f"\nimage: {image_url}\n"
+                    article_md = f"---\n{front}\n---" + article_md.split("---", 2)[2]
+        return article_md
+    except Exception as e:
+        logging.error(f"Failed to generate SEO blog post: {e}")
+        raise 

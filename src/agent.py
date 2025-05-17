@@ -1,7 +1,21 @@
 import logging
 import os
 ENABLE_X_TRENDS = os.getenv("ENABLE_X_TRENDS", "false").lower() == "true"
-from src.utils import fetch_world_news, fetch_x_trends, compute_hash, load_state, save_state, generate_blog_markdown, publish_blog, generate_tweet_thread, post_thread, log_metric, analyze_sentiment, generate_blog_image
+from src.utils import (
+    fetch_world_news,
+    fetch_x_trends,
+    compute_hash,
+    load_state,
+    save_state,
+    generate_seo_blog_post,
+    publish_blog,
+    generate_tweet_thread,
+    post_thread,
+    log_metric,
+    analyze_sentiment,
+    generate_blog_image,
+    fetch_primary_trend_keyword,
+)
 
 """
 agent.py
@@ -35,6 +49,15 @@ def run_agent_cycle():
         processed_hashes = set(title_hashes)
         new_hashes = []
         any_published = False
+
+        # Early exit if all fetched news already processed
+        if not news:
+            logging.info("World News API returned no articles. Nothing to process.")
+            return
+
+        # Determine primary Google trend keyword once per cycle
+        primary_trend_keyword = fetch_primary_trend_keyword()
+
         for idx, article in enumerate(news):
             try:
                 title = article.get("title", f"Nigeria News {idx+1}")
@@ -45,7 +68,7 @@ def run_agent_cycle():
                     continue
                 sentiment = analyze_sentiment(title)
                 image_url = generate_blog_image(title)
-                md = generate_blog_markdown(title, summary, sentiment, image_url=image_url)
+                md = generate_seo_blog_post(title, primary_trend_keyword, image_url=image_url)
                 blog_url = publish_blog(md, title, premium_only=False)
                 estimated_cost = 0.01  # TODO: Replace with real cost calculation
                 log_metric("api_spend_usd", estimated_cost)
@@ -63,7 +86,8 @@ def run_agent_cycle():
             save_state(state)
             logging.info(f"State updated with {len(new_hashes)} new article hashes.")
         elif not any_published:
-            logging.info("No new world news articles to process. Skipping blog and thread generation.")
+            logging.info("No unseen world news articles to process. Skipping cycle.")
+            return  # Exit early
         # Fetch X trends
         titles = [item["title"] for item in news]
         if ENABLE_X_TRENDS:
