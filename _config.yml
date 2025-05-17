@@ -1,3 +1,4 @@
 title: Area Pulse
 description: Tracking Nigeria's political, economic, and social landscape
-theme: jekyll-theme-architect 
+theme: jekyll-theme-architect
+baseurl: "/Area-Pulse" 
