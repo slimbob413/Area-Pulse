@@ -6,4 +6,4 @@ tweepy
 pytrends
 worldnewsapi
 redis 
-GitPython
+GitPythonGitPython
