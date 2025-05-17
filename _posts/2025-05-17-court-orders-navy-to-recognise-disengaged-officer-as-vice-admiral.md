@@ -1,5 +1,5 @@
-## Unpacking Court orders Navy to recognise disengaged officer as Vice Admiral
-![news image](https://oaidalleapiprodscus.blob.core.windows.net/private/org-icz6idtlNt9i50IB5ovn2dgl/user-vLI1bL7dfBEchAsrFvrKMXHM/img-R7D0JeolhWC1PXpp3i3xkZ1f.png?st=2025-05-17T20%3A34%3A25Z&se=2025-05-17T22%3A34%3A25Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=cc612491-d948-4d2e-9821-2683df3719f5&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-05-17T20%3A57%3A15Z&ske=2025-05-18T20%3A57%3A15Z&sks=b&skv=2024-08-04&sig=FKMagwcx1lNh%2Brk/UaRQBhQlTOZh7IK%2BovdobSLBSEE%3D)
+## Court orders Navy to recognise disengaged officer as Vice Admiral: A News Report
+![news image](https://oaidalleapiprodscus.blob.core.windows.net/private/org-icz6idtlNt9i50IB5ovn2dgl/user-vLI1bL7dfBEchAsrFvrKMXHM/img-duf4budxQRVcNzgmXqGhOX9i.png?st=2025-05-17T20%3A36%3A38Z&se=2025-05-17T22%3A36%3A38Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=cc612491-d948-4d2e-9821-2683df3719f5&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-05-17T21%3A36%3A38Z&ske=2025-05-18T21%3A36%3A38Z&sks=b&skv=2024-08-04&sig=riB8WiXsez023PW9/z23DzVjJI8%2BBjE%2B5NodqCoOm6Q%3D)
 _Date: 2025-05-17_  
 _Sentiment: neutral_
 
