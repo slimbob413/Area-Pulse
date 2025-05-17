@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  naijapulsebot:
+    build: .
+    container_name: naijapulsebot
+    restart: always
+    volumes:
+      - ./state:/app/state
+      - ./logs:/app/logs
+      - ./config:/app/config
+    environment:
+      - GROK_API_KEY=${GROK_API_KEY}
+      - OPENAI_KEY=${OPENAI_KEY}
+      - WORLD_NEWS_KEY=${WORLD_NEWS_KEY}
+      - GITHUB_REPO_PATH=${GITHUB_REPO_PATH}
+      - BLOG_BASE_URL=${BLOG_BASE_URL}
+      - ADSENSE_ID=${ADSENSE_ID}
+      - STRIPE_KEY=${STRIPE_KEY}
+      - PATREON_KEY=${PATREON_KEY} 

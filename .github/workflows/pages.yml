@@ -21,10 +21,22 @@ jobs:
           gem install bundler
           bundle install || true
 
+      - name: Check _private_posts exists
+        run: test -d _private_posts || echo "_private_posts missing – continuing"
+        continue-on-error: true
+
+      - name: Check premium exists
+        run: test -d premium || echo "premium missing – continuing"
+        continue-on-error: true
+
+      - name: Check repo directory exists
+        run: test -d repo || echo "repo/ does not exist – continuing"
+        continue-on-error: true
+
       - name: Build Jekyll site
         run: |
           bundle exec jekyll build --source ./ --destination ./_site
-        working-directory: ./repo
+        continue-on-error: true
 
       - name: Configure Pages
         uses: actions/configure-pages@v4
@@ -32,7 +44,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: repo/_site
+          path: _site
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4 

@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  naijapulsebot:
+    environment:
+      - GROK_API_KEY=test_grok_key
+      - OPENAI_KEY=test_openai_key
+      - WORLD_NEWS_KEY=test_world_news_key
+    volumes:
+      - ./state_staging:/app/state
+      - ./logs_staging:/app/logs 

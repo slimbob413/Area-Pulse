@@ -1,0 +1,8 @@
+APScheduler
+requests
+python-dotenv
+openai
+tweepy
+pytrends
+worldnewsapi
+redis 
