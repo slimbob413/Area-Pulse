@@ -333,14 +333,26 @@ def publish_blog(markdown: str, topic: str, premium_only: bool = False) -> str:
         repo.git.add(filename)
         repo.index.commit(f"Add blog post: {topic}")
         # Use GITHUB_TOKEN for authentication in push
-        origin_url = repo.remotes.origin.url
-        if github_token and origin_url.startswith("https://"):
+        origin_url = None
+        try:
+            origin_url = repo.remotes.origin.url
+        except AttributeError:
+            if len(repo.remotes) > 0:
+                origin_url = repo.remotes[0].url
+                logging.warning("'origin' remote not found; using first available remote instead.")
+            else:
+                logging.error("No git remotes found. Cannot push blog post.")
+                return url
+        if github_token and origin_url and origin_url.startswith("https://"):
             # Insert token into URL for push
             if "@" not in origin_url:
                 origin_url = origin_url.replace("https://", f"https://{github_token}@")
             repo.git.push(origin_url, "HEAD:main")
+        elif origin_url:
+            repo.git.push(origin_url, "HEAD:main")
         else:
-            repo.git.push()
+            logging.error("No valid remote URL found for git push.")
+            return url
         logging.info(f"Published blog post: {url}")
         return url
     except Exception as e:
