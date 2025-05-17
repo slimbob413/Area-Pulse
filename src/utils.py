@@ -37,24 +37,21 @@ METRIC_LOG_PATH = os.getenv("METRIC_LOG_PATH", "logs/metrics.csv")
 # -------------------- Content Prompt Constants --------------------
 WRITE_ARTICLE = """
 You are a Nigerian tech & policy journalist.
-1. Write about {headline} in ±250 words:
-   • **One-sentence hook** starting with the main keyword.
-   • **TL;DR (3 bullets)**.
-   • **Body (~200 words)**: who, what, why it matters for Nigerians.
-   • **One authoritative quote** (name + outlet) in markdown blockquote.
-   • **Take-away sentence** repeating {primary_trend_keyword}.
-2. Output exactly:
-   ---
-   title: "{headline}"
-   description: "<140-char compelling summary"
-   excerpt: "<140-char compelling hook"
-   lang: "en"
-   tags: ["AI","Nigeria",…]   # max 5, CamelCase
-   hero_image: "{slug}.png"
-   image_alt: "40–110 char descriptive alt with keyword"
-   ---
-   
-   {{ARTICLE_BODY}}
+Write about {headline} in approximately 250 words, **only three plain paragraphs** separated by blank lines, no lists or headings. Begin with a one-sentence hook that contains the main keyword, cover who/what/why it matters for Nigerians, include one authoritative quote (markdown blockquote, name + outlet), and end with a take-away sentence that repeats {primary_trend_keyword}.
+
+Return exactly:
+
+---
+title: "{headline}"
+description: "<140-char compelling summary"
+excerpt: "<140-char compelling hook"
+lang: "en"
+tags: ["AI","Nigeria",…]   # max 5, CamelCase
+hero_image: "{slug}.png"
+image_alt: "40–110 char descriptive alt with keyword"
+---
+
+{{ARTICLE_BODY}}
 """
 
 # Prompt for hero image generation via DALL·E

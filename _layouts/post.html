@@ -1,47 +1,22 @@
 {% raw %}
 {% seo %}
-<article>
-  <header>
-    <picture>
-      <source type="image/avif" srcset="{{ '/assets/img/' | append: page.hero_image | replace: '.png', '.avif' }}">
-      <source type="image/webp" srcset="{{ '/assets/img/' | append: page.hero_image | replace: '.png', '.webp' }}">
-      <img src="{{ '/assets/img/' | append: page.hero_image }}" alt="{{ page.image_alt }}" loading="lazy" width="100%" />
-    </picture>
-    <h1>{{ page.title }}</h1>
-    <p class="lede">{{ page.description }}</p>
-    {% if page.tldr %}
-    <ul class="tldr">
-      {% for point in page.tldr %}
-      <li>{{ point }}</li>
-      {% endfor %}
-    </ul>
-    {% endif %}
-  </header>
+<picture>
+  <img src="{{ page.hero_image | relative_url }}" alt="{{ page.image_alt }}" loading="lazy" style="width:100%;height:auto">
+</picture>
 
-  <div class="content">
-    {{ content }}
+<article>
+  {{ page.title }}
+  
+  {{ page.description }}
+
+  {{ content }}
+
+  <div class="keyfacts">
+    Key facts: {{ page.date | date: "%B %d, %Y" }} · {{ page.tags | join: ' · ' }} · NaijaPulseBot
   </div>
 
-  <aside class="sidebar">
-    <h2>Key Facts</h2>
-    <p><strong>Date:</strong> {{ page.date | date: "%B %d, %Y" }}</p>
-    <p><strong>Author:</strong> NaijaPulseBot</p>
-    <p><strong>Tags:</strong>
-      {% for tag in page.tags %}
-        <span class="tag">{{ tag }}</span>{% unless forloop.last %}, {% endunless %}
-      {% endfor %}
-    </p>
-  </aside>
-
-  <section class="related-posts">
-    <h2>Related Posts</h2>
-    <ul>
-    {% for post in site.posts | where_exp: 'p', 'p.tags | intersection: page.tags | size > 0' %}
-      {% unless post.url == page.url %}
-      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-      {% endunless %}
-    {% endfor %}
-    </ul>
-  </section>
+  <div class="related-posts">
+    Related: {% for post in site.posts | where_exp: 'p', 'p.tags | intersection: page.tags | size > 0' %}{% unless post.url == page.url %}<a href="{{ post.url }}">{{ post.title }}</a>{% unless forloop.last %} · {% endunless %}{% endunless %}{% endfor %}
+  </div>
 </article>
 {% endraw %} 
