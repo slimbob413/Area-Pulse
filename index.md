@@ -3,4 +3,4 @@ layout: default
 title: Welcome to Area Pulse
 ---
 
-Explore the latest trends in Nigerian politics, economy, and society. 
+Discover key trends and narratives from Nigeria's political, economic, and tech ecosystems. 
