@@ -1,5 +1,5 @@
-## Breaking Down MTN contributes N3bn to Nigeria scholarships
-![news image](https://oaidalleapiprodscus.blob.core.windows.net/private/org-icz6idtlNt9i50IB5ovn2dgl/user-vLI1bL7dfBEchAsrFvrKMXHM/img-3PRLbwilcXTsbqQYIt1Aq0yS.png?st=2025-05-17T15%3A55%3A39Z&se=2025-05-17T17%3A55%3A39Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=cc612491-d948-4d2e-9821-2683df3719f5&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-05-16T20%3A16%3A15Z&ske=2025-05-17T20%3A16%3A15Z&sks=b&skv=2024-08-04&sig=kPTzlIuBQ4C2UJsmi1%2Bz2HrVdsTJyvE0zk1WFHweOlM%3D)
+## MTN contributes N3bn to Nigeria scholarships: What Happened and Why It Matters
+![news image](https://oaidalleapiprodscus.blob.core.windows.net/private/org-icz6idtlNt9i50IB5ovn2dgl/user-vLI1bL7dfBEchAsrFvrKMXHM/img-fyxnFulaglCYRtUPUGx9SLTD.png?st=2025-05-17T16%3A23%3A42Z&se=2025-05-17T18%3A23%3A42Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=cc612491-d948-4d2e-9821-2683df3719f5&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-05-16T19%3A14%3A16Z&ske=2025-05-17T19%3A14%3A16Z&sks=b&skv=2024-08-04&sig=sEFaFiZQrxdn7BSkkbLgCfCI6DAvlg6uCJ4RuiCsh70%3D)
 _Date: 2025-05-17_  
 _Sentiment: positive_
 
