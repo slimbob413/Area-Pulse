@@ -52,8 +52,6 @@ You are a Nigerian tech & policy journalist.
    hero_image: "{slug}.png"   # filename only
    image_alt: "40–110 char descriptive alt with keyword"
 ---
-<blank line>
-{markdown_body}
 """
 
 # Prompt for hero image generation via DALL·E
