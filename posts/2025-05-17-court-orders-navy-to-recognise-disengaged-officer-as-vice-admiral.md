@@ -1,5 +1,5 @@
-## Inside Nigeria: Court orders Navy to recognise disengaged officer as Vice Admiral
-![news image](https://oaidalleapiprodscus.blob.core.windows.net/private/org-icz6idtlNt9i50IB5ovn2dgl/user-vLI1bL7dfBEchAsrFvrKMXHM/img-5mUVuK3jITr0CQ4T8WNL1ENO.png?st=2025-05-17T15%3A54%3A52Z&se=2025-05-17T17%3A54%3A52Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=cc612491-d948-4d2e-9821-2683df3719f5&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-05-16T19%3A59%3A33Z&ske=2025-05-17T19%3A59%3A33Z&sks=b&skv=2024-08-04&sig=hkzVZLVHVrWtibwy7P7jhiprLdLRwNGMZX72JKNJQ4Y%3D)
+## Nigeria Focus: Court orders Navy to recognise disengaged officer as Vice Admiral
+![news image](https://oaidalleapiprodscus.blob.core.windows.net/private/org-icz6idtlNt9i50IB5ovn2dgl/user-vLI1bL7dfBEchAsrFvrKMXHM/img-S1glU42rOtT0y29xsmVj64dQ.png?st=2025-05-17T16%3A22%3A56Z&se=2025-05-17T18%3A22%3A56Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=cc612491-d948-4d2e-9821-2683df3719f5&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-05-16T19%3A25%3A42Z&ske=2025-05-17T19%3A25%3A42Z&sks=b&skv=2024-08-04&sig=90qmk4MufYFFrEJJXAtiD8r252aJpGQrKknj4rBmrQs%3D)
 _Date: 2025-05-17_  
 _Sentiment: neutral_
 
