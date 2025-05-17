@@ -303,7 +303,7 @@ def publish_blog(markdown: str, topic: str, premium_only: bool = False) -> str:
     """
     repo_path = os.getenv("GITHUB_REPO_PATH")
     blog_base_url = os.getenv("BLOG_BASE_URL")
-    github_token = os.getenv("GITHUB_TOKEN")
+    github_token = os.getenv("GITHUB_DEPLOY_TOKEN") or os.getenv("GITHUB_TOKEN")
     if not repo_path or not blog_base_url:
         logging.error("GITHUB_REPO_PATH or BLOG_BASE_URL not set in environment.")
         raise RuntimeError("GITHUB_REPO_PATH or BLOG_BASE_URL not set in environment.")
@@ -332,27 +332,41 @@ def publish_blog(markdown: str, topic: str, premium_only: bool = False) -> str:
         repo = Repo(repo_path)
         repo.git.add(filename)
         repo.index.commit(f"Add blog post: {topic}")
-        # Use GITHUB_TOKEN for authentication in push
-        origin_url = None
-        try:
-            origin_url = repo.remotes.origin.url
-        except AttributeError:
-            if len(repo.remotes) > 0:
-                origin_url = repo.remotes[0].url
-                logging.warning("'origin' remote not found; using first available remote instead.")
-            else:
-                logging.error("No git remotes found. Cannot push blog post.")
+
+        # --- Remote handling ---
+        remotes = {r.name: r for r in repo.remotes}
+        if "origin" not in remotes:
+            if not github_token:
+                logging.warning("GITHUB_DEPLOY_TOKEN not set. Skipping git push/pull.")
                 return url
-        if github_token and origin_url and origin_url.startswith("https://"):
-            # Insert token into URL for push
-            if "@" not in origin_url:
-                origin_url = origin_url.replace("https://", f"https://{github_token}@")
+            remote_url_env = os.getenv("GITHUB_REMOTE_URL", "https://github.com/slimbob413/Area-Pulse.git")
+            if remote_url_env.startswith("https://") and "@" not in remote_url_env:
+                remote_url_env = remote_url_env.replace("https://", f"https://{github_token}@")
+            try:
+                repo.create_remote("origin", remote_url_env)
+                logging.info("Added authenticated 'origin' remote for Render auto-publishing.")
+            except Exception as e:
+                logging.error(f"Failed to create 'origin' remote: {e}")
+                return url
+            remotes = {r.name: r for r in repo.remotes}
+
+        origin_url = remotes["origin"].url
+
+        # Ensure token is embedded if using https
+        if github_token and origin_url.startswith("https://") and "@" not in origin_url:
+            origin_url = origin_url.replace("https://", f"https://{github_token}@")
+
+        try:
+            repo.git.pull(origin_url, "main")
+        except Exception as e:
+            logging.warning(f"Git pull failed (ignored): {e}")
+
+        try:
             repo.git.push(origin_url, "HEAD:main")
-        elif origin_url:
-            repo.git.push(origin_url, "HEAD:main")
-        else:
-            logging.error("No valid remote URL found for git push.")
+        except Exception as e:
+            logging.error(f"Failed to push blog post to GitHub: {e}")
             return url
+
         logging.info(f"Published blog post: {url}")
         return url
     except Exception as e:
