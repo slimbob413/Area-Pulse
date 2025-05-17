@@ -1,5 +1,5 @@
-## What You Need to Know About The ungolden silence of NJC on Imo judiciary
-![news image](https://oaidalleapiprodscus.blob.core.windows.net/private/org-icz6idtlNt9i50IB5ovn2dgl/user-vLI1bL7dfBEchAsrFvrKMXHM/img-vaKiSyAJwSAMv80FHHMP0BQi.png?st=2025-05-17T15%3A56%3A00Z&se=2025-05-17T17%3A56%3A00Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=cc612491-d948-4d2e-9821-2683df3719f5&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-05-16T18%3A57%3A02Z&ske=2025-05-17T18%3A57%3A02Z&sks=b&skv=2024-08-04&sig=mNTRnnAX/jP7AT2U3tCTU43QC67eMPdlVpN9nepX9NM%3D)
+## Nigeria Focus: The ungolden silence of NJC on Imo judiciary
+![news image](https://oaidalleapiprodscus.blob.core.windows.net/private/org-icz6idtlNt9i50IB5ovn2dgl/user-vLI1bL7dfBEchAsrFvrKMXHM/img-8R2xkN2AiN9DBu2aHnT3rDBD.png?st=2025-05-17T16%3A23%3A56Z&se=2025-05-17T18%3A23%3A56Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=cc612491-d948-4d2e-9821-2683df3719f5&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-05-16T20%3A06%3A34Z&ske=2025-05-17T20%3A06%3A34Z&sks=b&skv=2024-08-04&sig=YK52R%2B%2Bf3WENlane636W5PvyLZkx/xQsS3VLxX1L4YE%3D)
 _Date: 2025-05-17_  
 _Sentiment: negative_
 
