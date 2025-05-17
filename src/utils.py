@@ -34,6 +34,53 @@ STATE_PATH = os.getenv("STATE_PATH", "state/state.json")
 
 METRIC_LOG_PATH = os.getenv("METRIC_LOG_PATH", "logs/metrics.csv")
 
+# -------------------- Content Prompt Constants --------------------
+WRITE_ARTICLE = """
+You are a Nigerian tech & policy journalist.
+1. Write about {headline} in ±250 words:
+   • **One-sentence hook** starting with the main keyword.
+   • **TL;DR (3 bullets)**.
+   • **Body (~200 words)**: who, what, why it matters for Nigerians.
+   • **One authoritative quote** (name + outlet) in markdown blockquote.
+   • **Take-away sentence** repeating {primary_trend_keyword}.
+2. Output this YAML front-matter exactly:
+   title: "{headline}"
+   description: "<140-char compelling summary"
+   lang: "en"
+   tags: ["AI","Nigeria",…]   # max 5, CamelCase
+   hero_image: "{slug}.png"   # filename only
+   image_alt: "40–110 char descriptive alt with keyword"
+---
+<blank line>
+{markdown_body}
+"""
+
+# Prompt for hero image generation via DALL·E
+MAKE_IMAGE = """
+Generate a 16:9 photo-realistic editorial hero for:
+\"{headline}\"
+Scene must symbolise the story for a Nigerian reader, avoid text.
+Style: natural lighting, slight depth-of-field.
+"""
+
+# -------------------- Helper --------------------
+
+def _validate_and_split_front_matter(md: str) -> Tuple[str, str]:
+    """Return (yaml, body) from markdown string; raises ValueError if invalid."""
+    if not md.startswith("---"):
+        raise ValueError("Markdown missing YAML front-matter start delimiter")
+    parts = md.split("---", 2)
+    if len(parts) < 3:
+        raise ValueError("Markdown missing YAML front-matter end delimiter")
+    yaml_part = parts[1].strip()
+    body_part = parts[2].lstrip()  # keep leading newlines after yaml
+    # Basic validation
+    required = {"title", "description", "lang", "tags", "hero_image", "image_alt"}
+    for field in required:
+        if f"{field}:" not in yaml_part:
+            raise ValueError(f"YAML front-matter missing required field: {field}")
+    return yaml_part, body_part
+
 def retry(max_attempts=3, initial_delay=1.0, backoff_factor=2.0, jitter=0.1):
     """
     Retry decorator with exponential back-off and jitter.
@@ -211,9 +258,11 @@ def generate_blog_image(prompt: str) -> str:
     model = os.getenv("OPENAI_IMAGE_MODEL", "dall-e-3")
     size = os.getenv("OPENAI_IMAGE_SIZE", "1024x1024")
     try:
+        # Use MAKE_IMAGE template for richer prompt
+        image_prompt = MAKE_IMAGE.format(headline=prompt)
         response = client.images.generate(
             model=model,
-            prompt=prompt,
+            prompt=image_prompt,
             n=1,
             size=size
         )
@@ -321,6 +370,11 @@ def publish_blog(markdown: str, topic: str, premium_only: bool = False) -> str:
         filename = f"_posts/{date_str}-{slug}.md"
     post_path = Path(repo_path) / filename
     post_path.parent.mkdir(parents=True, exist_ok=True)
+    # Validate front-matter and body
+    try:
+        _validate_and_split_front_matter(markdown)
+    except Exception as e:
+        logging.warning(f"YAML validation failed for post '{topic}': {e}")
     with open(post_path, "w", encoding="utf-8") as f:
         f.write(markdown)
     url = f"{blog_base_url}/{filename}"
@@ -621,17 +675,11 @@ def generate_seo_blog_post(headline: str, primary_trend_keyword: str, image_url:
         "content": "You are a Nigerian tech & policy journalist."
     }
 
-    user_prompt = (
-        "1. Draft a 250-word explainer that:\n"
-        "   • opens with a one-sentence hook including the main keyword: \"{headline}\".\n"
-        "   • answers the search intent: who, what, why it matters for Nigerians.\n"
-        "   • adds one authoritative quote (source cited).\n"
-        "   • ends with a one-sentence takeaway that includes \"{primary_trend_keyword}\".\n"
-        "2. Provide:\n"
-        "   • `excerpt` (≤140 chars, compelling, keyword-rich)\n"
-        "   • `tags` list (max 5, camel-case)\n"
-        "Return as valid YAML front-matter followed by Markdown body."
-    ).format(headline=headline, primary_trend_keyword=primary_trend_keyword)
+    user_prompt = WRITE_ARTICLE.format(
+        headline=headline,
+        primary_trend_keyword=primary_trend_keyword,
+        slug=re.sub(r'[^a-z0-9]+', '-', headline.lower()).strip('-')
+    )
 
     try:
         response = client.chat.completions.create(
@@ -641,6 +689,9 @@ def generate_seo_blog_post(headline: str, primary_trend_keyword: str, image_url:
             temperature=0.7
         )
         article_md = response.choices[0].message.content.strip()
+
+        # Validate front-matter
+        _validate_and_split_front_matter(article_md)
 
         # Ensure required front-matter fields
         if image_url:

@@ -42,7 +42,7 @@ def run_agent_cycle():
         logging.info("Starting agent cycle.")
         os.makedirs("logs", exist_ok=True)
         # Fetch world news
-        news = fetch_world_news()
+        news = fetch_world_news()[:3]  # limit to 3 articles per cycle
         state = load_state()
         # Use a list of hashes for per-article deduplication
         title_hashes = state.get("title_hashes", [])
@@ -55,7 +55,7 @@ def run_agent_cycle():
             logging.info("World News API returned no articles. Nothing to process.")
             return
 
-        # Determine primary Google trend keyword once per cycle
+        # Determine primary Google trend keyword once per cycle (fallback handled in util)
         primary_trend_keyword = fetch_primary_trend_keyword()
 
         for idx, article in enumerate(news):
