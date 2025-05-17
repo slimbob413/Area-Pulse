@@ -43,15 +43,18 @@ You are a Nigerian tech & policy journalist.
    • **Body (~200 words)**: who, what, why it matters for Nigerians.
    • **One authoritative quote** (name + outlet) in markdown blockquote.
    • **Take-away sentence** repeating {primary_trend_keyword}.
-2. Output this YAML front-matter exactly:
+2. Output exactly:
+   ---
    title: "{headline}"
    description: "<140-char compelling summary"
    excerpt: "<140-char compelling hook"
    lang: "en"
    tags: ["AI","Nigeria",…]   # max 5, CamelCase
-   hero_image: "{slug}.png"   # filename only
+   hero_image: "{slug}.png"
    image_alt: "40–110 char descriptive alt with keyword"
----
+   ---
+   
+   {{ARTICLE_BODY}}
 """
 
 # Prompt for hero image generation via DALL·E
@@ -701,7 +704,10 @@ def generate_seo_blog_post(headline: str, primary_trend_keyword: str, image_url:
             max_tokens=700,
             temperature=0.7
         )
-        article_md = response.choices[0].message.content.strip()
+        article_raw = response.choices[0].message.content.strip()
+
+        # Replace placeholder with nothing (ensure proper blank line)
+        article_md = article_raw.replace("{{ARTICLE_BODY}}", "").lstrip()
 
         # Validate front-matter
         _validate_and_split_front_matter(article_md)
