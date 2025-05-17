@@ -1,5 +1,4 @@
-## What You Need to Know About The ungolden silence of NJC on Imo judiciary
-![news image](https://oaidalleapiprodscus.blob.core.windows.net/private/org-icz6idtlNt9i50IB5ovn2dgl/user-vLI1bL7dfBEchAsrFvrKMXHM/img-fByuElon611F4kC6BqHBXxSn.png?st=2025-05-17T20%3A31%3A09Z&se=2025-05-17T22%3A31%3A09Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=cc612491-d948-4d2e-9821-2683df3719f5&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-05-17T20%3A16%3A12Z&ske=2025-05-18T20%3A16%3A12Z&sks=b&skv=2024-08-04&sig=4HePqgKUrEC%2BQGc5ryrsBzabLSnKjddokOqruCNGDFk%3D)
+## Breaking Down The ungolden silence of NJC on Imo judiciary
 _Date: 2025-05-17_  
 _Sentiment: negative_
 
