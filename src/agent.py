@@ -1,5 +1,6 @@
 import logging
 import os
+import re
 ENABLE_X_TRENDS = os.getenv("ENABLE_X_TRENDS", "false").lower() == "true"
 from src.utils import (
     fetch_world_news,
@@ -67,8 +68,9 @@ def run_agent_cycle():
                     logging.info(f"Skipping already-processed article: {title}")
                     continue
                 sentiment = analyze_sentiment(title)
-                image_url = generate_blog_image(title)
-                md = generate_seo_blog_post(title, primary_trend_keyword, image_url=image_url)
+                slug = re.sub(r'[^a-z0-9]+', '-', title.lower()).strip('-')
+                hero_filename = generate_blog_image(title, slug)
+                md = generate_seo_blog_post(title, primary_trend_keyword, image_url=hero_filename)
                 blog_url = publish_blog(md, title, premium_only=False)
                 estimated_cost = 0.01  # TODO: Replace with real cost calculation
                 log_metric("api_spend_usd", estimated_cost)

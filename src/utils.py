@@ -46,6 +46,7 @@ You are a Nigerian tech & policy journalist.
 2. Output this YAML front-matter exactly:
    title: "{headline}"
    description: "<140-char compelling summary"
+   excerpt: "<140-char compelling hook"
    lang: "en"
    tags: ["AI","Nigeria",…]   # max 5, CamelCase
    hero_image: "{slug}.png"   # filename only
@@ -75,7 +76,7 @@ def _validate_and_split_front_matter(md: str) -> Tuple[str, str]:
     yaml_part = parts[1].strip()
     body_part = parts[2].lstrip()  # keep leading newlines after yaml
     # Basic validation
-    required = {"title", "description", "lang", "tags", "hero_image", "image_alt"}
+    required = {"title", "description", "excerpt", "lang", "tags", "hero_image", "image_alt"}
     for field in required:
         if f"{field}:" not in yaml_part:
             raise ValueError(f"YAML front-matter missing required field: {field}")
@@ -247,7 +248,7 @@ def analyze_sentiment(text: str) -> str:
             logging.error(f"Failed to analyze sentiment: {e}")
         return "neutral"
 
-def generate_blog_image(prompt: str) -> str:
+def generate_blog_image(prompt: str, slug: str) -> str:
     """
     Generate an image using OpenAI's DALL·E API and return the image URL.
     Reads OPENAI_KEY, OPENAI_IMAGE_MODEL, and OPENAI_IMAGE_SIZE from env.
@@ -268,7 +269,21 @@ def generate_blog_image(prompt: str) -> str:
         )
         image_url = response.data[0].url
         logging.info(f"Generated image for prompt '{prompt}': {image_url}")
-        return image_url
+
+        # Download image locally to assets/img/{slug}.png
+        try:
+            import requests
+            assets_dir = Path("assets/img")
+            assets_dir.mkdir(parents=True, exist_ok=True)
+            img_path = assets_dir / f"{slug}.png"
+            resp_img = requests.get(image_url, timeout=30)
+            resp_img.raise_for_status()
+            with open(img_path, "wb") as img_f:
+                img_f.write(resp_img.content)
+            logging.info(f"Saved hero image to {img_path}")
+        except Exception as dl_err:
+            logging.warning(f"Failed to download hero image: {dl_err}")
+        return f"{slug}.png"
     except Exception as e:
         if hasattr(e, 'status_code') and e.status_code == 401:
             logging.error("OpenAI authentication failed: Invalid API key.")
